@@ -40,8 +40,11 @@ def finishExam(sess, access_token, data):
         ans_dict = eval(text)['data']
         task_li = ["single", "multi", "duge", "fill"]
         for eacc in task_li:
-            for i in range(0, len(ans_dict[eacc])):
-                ans_dict[eacc][i]["user_answer"] = ans_dict[eacc][i]["answer"]
+            try:
+                for i in range(0, len(ans_dict[eacc])):
+                    ans_dict[eacc][i]["user_answer"] = ans_dict[eacc][i]["answer"]
+            except TypeError:
+                pass
         examData["exercInfo"] = ans_dict
 
         tata = getStr(examData)

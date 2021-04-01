@@ -8,7 +8,8 @@
 """
 from ENV import header
 
-
+global null
+null = ''
 def getTaskList(sess, access_token, data):
     url = "https://jxjy.qhdjxjy.com/index.php/study/default/course-task"
     data.update(access_token)

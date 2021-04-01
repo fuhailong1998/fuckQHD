@@ -43,8 +43,6 @@ if __name__ == '__main__':
     #     base64_data = base64.b64encode(f.read())
     # ImageB = str(base64_data)[2:-1]
 
-
-
     while True:
 
         token = input("Please Input access-token:\n")
@@ -63,7 +61,7 @@ if __name__ == '__main__':
             r = sess.get(photo)
             path = os.path.abspath(os.getcwd()) + '\photo.png'
             open(path, 'wb').write(r.content)
-            print("Photo Saved To "+path+".")
+            print("Photo Saved To " + path + ".")
             while True:
                 print("Choose the Choise：\n")
                 print("1：Get Course List")
@@ -79,7 +77,6 @@ if __name__ == '__main__':
                             base64_data = base64.b64encode(f.read())
                             ImageB = str(base64_data)[2:-1]
 
-
                         chdata = {}
                         chdata['ImageB'] = ImageB
                         chdata['UrlA'] = photo
@@ -91,8 +88,10 @@ if __name__ == '__main__':
                         chdata['courseId'] = data['course_id']
                         chdata['exercName'] = ''
 
-                        finishLesson(sess,access_token,data,chdata)
-                        finishExam(sess,access_token,data)
+
+
+                        finishLesson(sess, access_token, data, chdata)
+                        finishExam(sess, access_token, data)
                         input("Press Enter to Exit")
 
                 else:

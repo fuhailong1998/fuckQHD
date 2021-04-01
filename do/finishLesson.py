@@ -30,7 +30,12 @@ def finishLesson(sess, access_token, data, chdata):
         chdata['taskId'] = each['ware_id']
         chdata['taskName'] = each['courseware_name']
 
-        temp['watch_time'] = float(each['hours'])*0.95
+
+        try:
+            temp['watch_time'] = float(each['hours'])*0.95
+        except ValueError:
+            temp['watch_time'] = 60.0*0.95
+
 
         sess.post(url=url, headers=header, data=page)
 
